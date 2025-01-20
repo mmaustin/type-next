@@ -8,12 +8,14 @@ export type CounterState = {
 export type CounterActions = {
   decrementCount: () => void,
   incrementCount: () => void
+  clearCount: () => void
 };
 
 export type CounterStore = CounterState & CounterActions;
 
 export const initCounterStore = (): CounterState => {
-  return {count: new Date().getFullYear()};
+  return {count: 0};
+  //return {count: new Date().getFullYear()};
 };
 
 export const defaultInitState: CounterState = {count: 0};
@@ -22,6 +24,7 @@ export const createCounterStore = (initState: CounterState = defaultInitState) =
   return createStore<CounterStore>()((set) => ({
     ...initState,
     decrementCount: () => set((state) => ({count: state.count - 1})),
-    incrementCount: () => set((state) => ({count: state.count + 1})),  
+    incrementCount: () => set((state) => ({count: state.count + 1})),
+    clearCount: () => set((state) => ({count: state.count = 0}))
   }));
 };
