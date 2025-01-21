@@ -1,13 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 
 export type SquareProps = {
   value: number[],
-  onSquareClick(fn: ()=> void): string
+  onSquareClick(i:string): string
 }
 
 function Square({value, onSquareClick}: SquareProps) {
   return (
-    <div>Square</div>
+    <button className="inline-flex justify-center items-center p-0 bg-white border border-slate-400 outline-0 rounded-none font-bold text-base" onClick={() => onSquareClick}>
+      {value}
+    </button>
   )
 }
-export default Square
+export default Square;
