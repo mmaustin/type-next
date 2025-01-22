@@ -1,5 +1,7 @@
 // import HomePage from "@/components/pages/HomePage";
+'use client'
 
+import Square from "@/components/tic-tac-toe/Square";
 
 // function Page() {
 //   return (
@@ -9,7 +11,6 @@
 //   )
 // }
 // export default Page;
-'use client'
 
 
 
@@ -23,13 +24,20 @@
 function Page() {
   //console.log(value);
   
+  const printThis = (i: number): number => {
+    console.log('apple'[i]);
+     return i;  
+  }
   return (
-    <>
-    <button className="h-10 w-10 inline-flex justify-center items-center p-0 bg-red-300 border border-slate-400 outline-0 rounded-none font-bold text-base" onClick={() => console.log('apple')}>      
-      987
-    </button>
-    </>
+
+    <Square value={[0,1,2]} onSquareClick={() => printThis(2)}/>
   )
+  //   <>
+  //   <button className="h-10 w-10 inline-flex justify-center items-center p-0 bg-red-300 border border-slate-400 outline-0 rounded-none font-bold text-base" onClick={() => console.log('apple')}>      
+  //     987
+  //   </button>
+  //   </>
+  // )
 }
 export default Page;
 

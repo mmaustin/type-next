@@ -5,7 +5,7 @@ import { useCounterStore } from "@/providers/counter-store-provider";
 
 function HomePage() {
 
-  const {count, incrementCount, decrementCount, clearCount} = useCounterStore((state) => state)
+  const { count, incrementCount, decrementCount, clearCount } = useCounterStore((state) => state)
 
   return (
     <div>
