@@ -1,8 +1,11 @@
 
+// const forX: string = "X" 
+// const forO: string = "O" 
+
 
 export type SquareProps = {
   value: number[],
-  onSquareClick(i:string): string
+  onSquareClick(id: number): string
 }
 
 function Square({value, onSquareClick}: SquareProps) {
@@ -13,3 +16,14 @@ function Square({value, onSquareClick}: SquareProps) {
   )
 }
 export default Square;
+
+
+export function SquareTest() {
+  const printThis = (i: number): string => {
+    return 'apple'[i];
+    
+  }
+  return (
+    <Square value={[0,1,2]} onSquareClick={() => printThis(2)}/>
+  )
+};
