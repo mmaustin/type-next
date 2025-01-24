@@ -1,7 +1,6 @@
 'use client'
 
-import Square from "@/components/tic-tac-toe/Square";
-
+import Board from "@/components/tic-tac-toe/Board";
 
 function TicTacToe() {
   // const printThis = (i: number): string => {
@@ -10,7 +9,9 @@ function TicTacToe() {
   // }
 
   return (
-    <Square value='1' />
+    <div className="mt-20 mx-6 display flex justify-center items-center">
+      <Board />
+    </div>
   )
 }
 export default TicTacToe;
