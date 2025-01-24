@@ -5,7 +5,7 @@
 
 export type SquareProps = {
   value: number[],
-  onSquareClick(): number
+  onSquareClick(): string
 }
 
 function Square({value, onSquareClick}: SquareProps) {
