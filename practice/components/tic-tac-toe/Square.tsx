@@ -2,6 +2,7 @@
 
 export type SquareProps = {
   value: string,
+  key?: number,
 }
 
 function Square({ value }: SquareProps) {
