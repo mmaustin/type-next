@@ -4,6 +4,20 @@ import { create } from "zustand";
 import Square from "./Square";
 import { combine } from "zustand/middleware";
 
+
+const useGameStore = create(
+  combine({squares: Array(9).fill(null)}, (set) => {
+    return {
+      setSquares: (nextSquares) => {
+        set(state => ({
+          squares:
+            typeof nextSquares === 'function' ? nextSquares(state.squares) : nextSquares,
+        }))
+      }
+    }
+  })
+)
+
 function Board() {
   return (
     <div className="" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: 'repeat(3, 1fr', width: 'calc(3 * 2.5rem', height: 'calc(3 * 2.5rem', border: '1px solid #999' }}>
