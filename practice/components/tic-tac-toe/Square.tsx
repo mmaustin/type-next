@@ -1,7 +1,7 @@
 
 
 export type SquareProps = {
-  value: string,
+  value: string | null,
   key?: number,
 }
 
