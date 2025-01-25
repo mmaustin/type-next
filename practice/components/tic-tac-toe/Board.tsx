@@ -23,12 +23,18 @@ function Board() {
   const squares = useGameStore(state => state.squares);
   const setSquares = useGameStore(state => state.setSquares);
 
+  function handleClick(i: number){
+    if (squares[i]) return;
+    const nextSquares = squares.slice();
+    nextSquares[i] = 'X';
+    setSquares(nextSquares);
+  }
 
   return (
-    <div className="">
-      <div className="" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: 'repeat(3, 1fr', width: 'calc(3 * 2.5rem', height: 'calc(3 * 2.5rem', border: '1px solid #999' }}>
+    // <div className="">
+      <div className="h-40 w-40" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gridTemplateRows: 'repeat(3, 1fr', width: 'calc(3 * 2.5rem', height: 'calc(3 * 2.5rem', border: '1px solid #999' }}>
         {squares.map((square, index) => (
-          <Square key={index} value={square} />
+          <Square key={index} useIndex={index} value={square} onSquareClick={() => handleClick(index)} />
         ))}
         {/* <Square value='1' />
         <Square value='2' />
@@ -40,7 +46,7 @@ function Board() {
         <Square value='8' />
         <Square value='9' /> */}
       </div>
-    </div>
+    // {/* </div> */}
 
   )
 }
