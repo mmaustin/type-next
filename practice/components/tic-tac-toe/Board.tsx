@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 
 import { create } from "zustand";
 import Square from "./Square";
@@ -28,14 +28,18 @@ const useGameStore = create(
 
 function Board() {
 
+  const xIsNext = useGameStore(state => state.xIsNext);
+  const setXIsNext = useGameStore(state => state.setXIsNext);
   const squares = useGameStore(state => state.squares);
   const setSquares = useGameStore(state => state.setSquares);
+  const player = xIsNext ? 'X' : 'O'
 
   function handleClick(i: number) {
     if (squares[i]) return;
     const nextSquares = squares.slice();
-    nextSquares[i] = 'X';
+    nextSquares[i] = player;
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
 
   return (
