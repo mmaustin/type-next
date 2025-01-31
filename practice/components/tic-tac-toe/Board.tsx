@@ -26,7 +26,9 @@ const useGameStore = create(
   })
 );
 
-function calculateWinner(squares: string | null[]): string | null {
+const arraySquares: string|null[] = []
+
+function calculateWinner(squares: any[]): string | null {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -45,6 +47,10 @@ function calculateWinner(squares: string | null[]): string | null {
     };
   };
   return null;
+};
+
+function calculateTurns(squares: unknown[]): number{
+  return squares.filter(square => square).length;
 }
 
 function Board() {
