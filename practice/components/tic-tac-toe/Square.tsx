@@ -2,7 +2,7 @@
 
 
 export type SquareProps = {
-  value: string | null,
+  value: string,
   useIndex: number,
   onSquareClick:(index: number) => void
 }

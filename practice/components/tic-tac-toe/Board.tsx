@@ -6,7 +6,7 @@ import { combine } from "zustand/middleware";
 
 
 const useGameStore = create(
-  combine({ squares: Array(9).fill(null), xIsNext: true }, (set) => {
+  combine({ squares: Array(9).fill(''), xIsNext: true }, (set) => {
     return {
       setSquares: (nextSquares) => {
         set(state => ({
@@ -26,9 +26,8 @@ const useGameStore = create(
   })
 );
 
-const arraySquares: string|null[] = []
 
-function calculateWinner(squares: any[]): string | null {
+function calculateWinner(squares: string[]): string | null {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -49,8 +48,8 @@ function calculateWinner(squares: any[]): string | null {
   return null;
 };
 
-function calculateTurns(squares: unknown[]): number{
-  return squares.filter(square => square).length;
+function calculateTurns(squares: string[]): number{
+  return squares.filter(square => !square).length;
 }
 
 function Board() {
