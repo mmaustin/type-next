@@ -50,6 +50,18 @@ function calculateWinner(squares: string[]): string | null {
 
 function calculateTurns(squares: string[]): number{
   return squares.filter(square => !square).length;
+};
+
+type CalculateStatus = {
+  winner: string,
+  turns: number,
+  player: string
+};
+
+function calculateStatus({winner, turns, player}: CalculateStatus): string {
+  if (!winner && !turns) return 'Draw';
+  if (winner) return `Winner ${winner}`;
+  return `Next player: ${player}`;
 }
 
 function Board() {
@@ -58,10 +70,12 @@ function Board() {
   const setXIsNext = useGameStore(state => state.setXIsNext);
   const squares = useGameStore(state => state.squares);
   const setSquares = useGameStore(state => state.setSquares);
+  const winner = calculateWinner(squares);
+  const turns = calculateTurns(squares);
   const player = xIsNext ? 'X' : 'O'
 
   function handleClick(i: number) {
-    if (squares[i]) return;
+    if (squares[i] || winner) return;
     const nextSquares = squares.slice();
     nextSquares[i] = player;
     setSquares(nextSquares);
