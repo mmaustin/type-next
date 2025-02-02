@@ -62,7 +62,8 @@ function calculateStatus({ winner, turns, player }: CalculateStatus): string {
   if (!winner && !turns) return 'Draw';
   if (winner) return `Winner ${winner}`;
   return `Next player: ${player}`;
-}
+};
+
 
 function Board() {
 
@@ -93,5 +94,18 @@ function Board() {
       </div>
     </>
   )
+};
+
+function Game() {
+  return (
+    <div style={{display: 'flex', flexDirection: 'row', fontFamily: 'monospace'}}>
+      <div className="">
+        <Board />
+      </div>
+      <div className="" style={{marginLeft: '1rem'}}>
+        <ol>{}</ol>
+      </div>
+    </div>
+  )
 }
-export default Board;
+export default Game;
