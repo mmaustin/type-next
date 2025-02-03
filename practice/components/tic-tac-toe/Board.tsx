@@ -61,7 +61,7 @@ type CalculateStatus = {
 type BoardProps = {
   xIsNext: boolean,
   squares: string[],
-
+  onPlay:(nextSquares: string[]) => void
 }
 
 function calculateStatus({ winner, turns, player }: CalculateStatus): string {
@@ -71,7 +71,7 @@ function calculateStatus({ winner, turns, player }: CalculateStatus): string {
 };
 
 
-function Board({xIsNext, squares}: BoardProps) {
+function Board({xIsNext, squares, onPlay}: BoardProps) {
 
   const winner = calculateWinner(squares);
   const turns = calculateTurns(squares);
@@ -82,8 +82,7 @@ function Board({xIsNext, squares}: BoardProps) {
     if (squares[i] || winner) return;
     const nextSquares = squares.slice();
     nextSquares[i] = player;
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   }
 
   return (
@@ -105,12 +104,15 @@ function Game() {
   const setHistory = useGameStore(state => state.setHistory);
   const currentSquares = history[history.length - 1];
 
-  
+  function handlePlay(nextSquares: string[]){
+    setHistory(history.concat([nextSquares]));
+    setXIsNext(!xIsNext);
+  };
 
   return (
     <div style={{display: 'flex', flexDirection: 'row', fontFamily: 'monospace'}}>
       <div className="">
-        <Board xIsNext={xIsNext} squares={currentSquares}/>
+        <Board xIsNext={xIsNext} squares={currentSquares}onPlay={handlePlay}/>
       </div>
       <div className="" style={{marginLeft: '1rem'}}>
         <ol>{}</ol>
