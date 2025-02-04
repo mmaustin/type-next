@@ -5,6 +5,7 @@ import Square from "./Square";
 import { combine } from "zustand/middleware";
 
 
+
 const useGameStore = create(
   combine({ history: Array(9).fill(''), xIsNext: true }, (set) => {
     return {
@@ -28,6 +29,8 @@ const useGameStore = create(
 
 
 function calculateWinner(squares: string[]): string | null {
+  console.log(squares);
+  
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -72,6 +75,7 @@ function calculateStatus({ winner, turns, player }: CalculateStatus): string {
 
 
 function Board({xIsNext, squares, onPlay}: BoardProps) {
+console.log('squares');
 
   const winner = calculateWinner(squares);
   const turns = calculateTurns(squares);
@@ -104,7 +108,7 @@ function Game() {
   const setHistory = useGameStore(state => state.setHistory);
   const currentSquares = history[history.length - 1];
 
-  function handlePlay(nextSquares: string[]){
+  function handlePlay(nextSquares: string[]):void{
     setHistory(history.concat([nextSquares]));
     setXIsNext(!xIsNext);
   };
@@ -112,7 +116,7 @@ function Game() {
   return (
     <div style={{display: 'flex', flexDirection: 'row', fontFamily: 'monospace'}}>
       <div className="">
-        <Board xIsNext={xIsNext} squares={currentSquares}onPlay={handlePlay}/>
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
       </div>
       <div className="" style={{marginLeft: '1rem'}}>
         <ol>{}</ol>
