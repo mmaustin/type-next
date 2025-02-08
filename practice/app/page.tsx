@@ -6,6 +6,7 @@ function Page() {
     <div className="mt-8 display flex justify-center items-center">
       {/* Component for zustand counter example */}
       {/* <HomePage /> */}
+      Home Page
     </div>
   )
 }
