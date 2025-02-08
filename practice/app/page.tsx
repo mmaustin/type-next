@@ -1,10 +1,11 @@
-import HomePage from "@/components/pages/HomePage";
+//import HomePage from "@/components/pages/HomePage";
 
 
 function Page() {
   return (
     <div className="mt-8 display flex justify-center items-center">
-      <HomePage />
+      {/* Component for zustand counter example */}
+      {/* <HomePage /> */}
     </div>
   )
 }
