@@ -10,6 +10,10 @@ export default {
   theme: {
   	extend: {
   		colors: {
+				dark: {
+					1: '#1C1F2E',
+					2: '#161925'
+				},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -58,5 +62,6 @@ export default {
   		}
   	}
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
