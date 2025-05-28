@@ -3,7 +3,7 @@
 
 const Meeting = async ({params}: {params: {id: string}}) => {
   
-  const {id} = await params;
+  const {id} = params;
   
   return (
     <div>Meeting Room #: {id} </div>

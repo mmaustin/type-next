@@ -3,7 +3,7 @@
 export const sidebarLinks = [
   {
     label: 'Home',
-    route: '/home',
+    route: '/',
     imgUr: '/icons/home.svg'
   },
   {
