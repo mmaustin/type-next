@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sheet"
 import Image from "next/image";
 import Link from "next/link";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 
 const MobileNav = () => {
@@ -25,6 +26,11 @@ const MobileNav = () => {
           />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-dark-1">
+          <SheetTitle >
+            <VisuallyHidden.Root>
+              Mobile Menu Title
+            </VisuallyHidden.Root>
+          </SheetTitle>
           <Link href={'/'} className="flex items-center gap-1">
             <Image
               src="/favicon.ico"
