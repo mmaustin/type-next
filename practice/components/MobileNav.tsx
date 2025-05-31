@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 'use client';
 
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
+
   SheetTitle,
   SheetTrigger,
   SheetClose
@@ -54,19 +51,21 @@ const MobileNav = () => {
 
           <div className="flex h-[calc(100vh-72px)] flex-col justify-between overflow-y-auto">
             <SheetClose asChild>
-              <section   className="flex h-full flex-col gap-6 pt-16 text-white">
-              {sidebarLinks.map((link) => {
-          const isActive = pathname === link.route || pathname.startsWith(link.route);
-          return (
-            <Link
-              href={link.route}
-              key={(link.label)}
-              className={cn('flex gap-4 items-center p-4 rounded-lg justify-start', {'bg-blue-600': isActive})}
-            >
-              {link.label}
-            </Link>
-          )
-        })}
+              <section className="flex h-full flex-col gap-6 pt-16 text-white">
+                {sidebarLinks.map((link) => {
+                  const isActive = pathname === link.route;
+                  return (
+                    <SheetClose asChild key={link.route} >
+                      <Link
+                        href={link.route}
+                        key={(link.label)}
+                        className={cn('flex gap-4 items-center p-4 rounded-lg justify-start', { 'bg-blue-600': isActive })}
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
+                  )
+                })}
               </section>
             </SheetClose>
           </div>
