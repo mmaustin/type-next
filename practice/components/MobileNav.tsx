@@ -8,6 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Image from "next/image";
+import Link from "next/link";
 
 
 const MobileNav = () => {
@@ -23,14 +24,17 @@ const MobileNav = () => {
             className="cursor-pointer sm:hidden"
           />
         </SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Are you absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your account
-              and remove your data from our servers.
-            </SheetDescription>
-          </SheetHeader>
+        <SheetContent side="left" className="border-none bg-dark-1">
+          <Link href={'/'} className="flex items-center gap-1">
+            <Image
+              src="/favicon.ico"
+              alt="Placeholder Image"
+              width={32}
+              height={32}
+              className="max-sm:size-10"
+            />
+            <p className="text-[26px] font-extrabold text-white">Yoom</p>
+          </Link>
         </SheetContent>
       </Sheet>
 
