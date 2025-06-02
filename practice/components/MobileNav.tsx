@@ -42,8 +42,8 @@ const MobileNav = () => {
             <Image
               src="/favicon.ico"
               alt="Placeholder Image"
-              width={32}
-              height={32}
+              width={20}
+              height={20}
               className="max-sm:size-10"
             />
             <p className="text-[26px] font-extrabold text-white">Yoom</p>

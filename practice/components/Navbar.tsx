@@ -6,8 +6,8 @@ import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
-    <nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-6 lg:px-10">
-      <Link href={'/'} className="flex items-center gap-1">
+    <nav className="flex-between fixed z-50 w-full bg-dark-1 px-2 py-2 lg:px-10">
+      <Link href={'/'} className="flex mb-2 items-center gap-1">
         <Image
           src="/favicon.ico"
           alt="Placeholder Image"
