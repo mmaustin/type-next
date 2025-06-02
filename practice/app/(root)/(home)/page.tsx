@@ -1,3 +1,4 @@
+import MeetingTypeList from "@/components/MeetingTypeList";
 
 
 
@@ -17,6 +18,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <MeetingTypeList />
     </section>
   )
 }
