@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { cn } from "@/lib/utils";
 
-
-const FunctionCard = ({cardText, icon, handleClick, className}: {cardText: string, icon: React.ReactElement, handleClick(): void, className: string}) => {
+const FunctionCard = ({cardText, icon, handleClick, classname}: {cardText: string, icon: React.ReactElement, handleClick(): void, classname: string}) => {
   return (
-    <div className={`${className} px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer`} onClick={handleClick}>
+    <div className={cn('px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer', classname)} onClick={handleClick}>
       <div className="flex justify-center items-center size-12 rounded-[10px] bg-black">
         {icon}
       </div>
