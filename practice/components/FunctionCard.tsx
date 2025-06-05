@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 
-const FunctionCard = ({cardText, icon, handleClick}: {cardText: string, icon: React.ReactElement, handleClick(): string}) => {
+const FunctionCard = ({cardText, icon, handleClick}: {cardText: string, icon: React.ReactElement, handleClick(): void}) => {
   return (
     <div className="bg-orange-400 px-4 py-6 flex flex-col justify-between w-full xl:max-w-[270px] min-h-[260px] rounded-[14px] cursor-pointer" onClick={() => { }}>
       <div className="flex justify-center items-center size-12 rounded-[10px] bg-blue-600">
