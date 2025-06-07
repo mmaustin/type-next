@@ -14,7 +14,7 @@ const MeetingTypeList = () => {
   console.log(meetingState)
 
   return (
-    <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-col-4">
+    <section className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
       <FunctionCard cardText={'New Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isInstantMeeting')} classname="bg-orange-600"/>
       <FunctionCard cardText={'Schedule Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isScheduleMeeting')} classname="bg-blue-600"/>
       <FunctionCard cardText={'View Recordings'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isJoiningMeeting')} classname="bg-purple-600"/>
