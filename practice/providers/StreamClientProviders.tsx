@@ -5,7 +5,7 @@ import {
   User,
 } from "@stream-io/video-react-sdk";
 
-const apiKey = "your-api-key";
+const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
 const userId = "user-id";
 const token = "authentication-token";
 const user: User = { id: userId };
@@ -18,7 +18,7 @@ export const MyApp = () => {
   return (
     <StreamVideo client={client}>
       <StreamCall call={call}>
-        {/* <MyVideoUI /> */}
+       
       </StreamCall>
     </StreamVideo>
   );
