@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 
 interface MeetingModalProps {
@@ -24,17 +25,20 @@ interface MeetingModalProps {
 
 const MeetingModal = ({ isOpen, onClose, title, classname, buttonText, handleClick, children, image, buttonIcon }: MeetingModalProps) => {
   return (
-    <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your account
-            and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="flex w-full max-w-[520px] flex-col gap-6 border-none bg-black px-6 py-9 text-white">
+        <div className="flex flex-col gap-6">
+
+        </div>
       </DialogContent>
+      <DialogTitle className="sr-only">
+        {/* <VisuallyHidden.Root >
+          Open or Closed Modal
+        </VisuallyHidden.Root> */}
+      </DialogTitle>
+      <DialogDescription className="sr-only">
+        Open or Close Modal
+      </DialogDescription>
     </Dialog>
   )
 };
