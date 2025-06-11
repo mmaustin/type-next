@@ -1,7 +1,11 @@
 import MeetingTypeList from "@/components/MeetingTypeList";
 
+const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
 
 const Home = () => {
+
+  console.log(typeof apiKey);
+  
 
   const dateTime = new Date();
   const dayOfWeek: string = dateTime.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
