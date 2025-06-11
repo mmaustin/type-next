@@ -1,8 +1,8 @@
 import MeetingTypeList from "@/components/MeetingTypeList";
 
 
-
 const Home = () => {
+
   const dateTime = new Date();
   const dayOfWeek: string = dateTime.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'});
   const time: string = ( new Intl.DateTimeFormat('en-US', {dateStyle: 'full'})).format();
