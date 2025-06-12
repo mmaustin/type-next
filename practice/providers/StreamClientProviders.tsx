@@ -18,15 +18,14 @@ const StreamVideoProvider = ({children}: {children: ReactNode}) => {
   let client;
   if(apiKey){
     client = new StreamVideoClient({apiKey, tokenProvider, user});
-  } else {
-    return <p>No API Key</p>
-  }
+    setVideoClient(client);
+  };
   
-  console.log(client);
+  if(!videoClient) return <p>Loading . . . </p>
   
   return (
     <StreamVideo client={videoClient}>
-
+      {children}
     </StreamVideo>
   );
 };
