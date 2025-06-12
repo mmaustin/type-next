@@ -9,7 +9,7 @@ import {
 import { useState, ReactNode } from "react";
 
 const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
-const user: User = {id: '1'};
+const user: User = {id: '1', name: 'mccray'};
 
 const StreamVideoProvider = ({children}: {children: ReactNode}) => {
 
