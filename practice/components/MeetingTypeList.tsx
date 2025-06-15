@@ -8,6 +8,7 @@ import { useState } from "react";
 import MeetingModal from "./MeetingModal";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner"
 
 const MeetingTypeList = () => {
 
@@ -29,6 +30,11 @@ const MeetingTypeList = () => {
     if(!client) return;
 
     try {
+      if(!values.dateTime){
+        toast.info('Please select a date and time');
+        return;
+      }
+
       const id = crypto.randomUUID();
       const call = client.call('default', id);
       
@@ -52,11 +58,12 @@ const MeetingTypeList = () => {
         router.push(`/meeting/${call.id}`);
       };
 
+      toast.success('Meeting Created')
+
     } catch (error) {
       console.log(error);
-      
-    }
-    
+      toast.error('Meeting was not created.')
+    }   
   };
 
   return (
