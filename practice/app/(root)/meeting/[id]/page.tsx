@@ -1,9 +1,16 @@
+'use client';
 
+import { use } from "react";
+import { User } from "@stream-io/video-react-sdk";
 
+const Meeting = ({params}: {params: Promise<string>}) => {
 
-const Meeting = async ({params}: {params: {id: string}}) => {
+  const user: User = {id: '1', name: 'mccray'};
+  console.log(user);
   
-  const {id} = await params;
+   
+  const paramId = use(params)
+  const id = Object.values(paramId)[0];
   
   return (
     <div className="text-zinc-50">Meeting Room #: {id} </div>
