@@ -2,7 +2,7 @@
 
 const MeetingRoom = () => {
   return (
-    <div>MeetingRoom</div>
+    <div className="text-white">MeetingRoom</div>
   )
 }
 export default MeetingRoom;

@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
+import MeetingRoom from "@/components/MeetingRoom";
+import MeetingSetup from "@/components/MeetingSetup";
 import { StreamCall, User, StreamTheme } from "@stream-io/video-react-sdk";
 import { use, useState } from "react";
 
@@ -17,9 +19,9 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
     <StreamCall>
       <StreamTheme>
         {!isSetupComplete ? (
-          'Meeting Setup'
+          <MeetingSetup />
         ) : (
-          'Meeting Room'
+          <MeetingRoom />
         )}
       </StreamTheme>
     </StreamCall>

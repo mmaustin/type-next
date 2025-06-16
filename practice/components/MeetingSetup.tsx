@@ -2,7 +2,7 @@
 
 const MeetingSetup = () => {
   return (
-    <div>MeetingSetup</div>
+    <div className="text-white">MeetingSetup</div>
   )
 }
 export default MeetingSetup;
