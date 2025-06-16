@@ -1,17 +1,28 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
-import { use } from "react";
-//import { User } from "@stream-io/video-react-sdk";
+import { StreamCall, User, StreamTheme } from "@stream-io/video-react-sdk";
+import { use, useState } from "react";
 
 const Meeting = ({params}: {params: Promise<{id: string}>}) => {
 
-  //const user: User = {id: '1', name: 'mccray'};
+  const [isSetupComplete, setIsSetupComplete] = useState<boolean>(false);
+
+  const user: User = {id: '1', name: 'mccray'};
   
   const paramId = use(params)
   const {id} = paramId;
   
   return (
-    <div className="text-zinc-50">Meeting Room #: {id} </div>
+    <StreamCall>
+      <StreamTheme>
+        {!isSetupComplete ? (
+          'Meeting Setup'
+        ) : (
+          'Meeting Room'
+        )}
+      </StreamTheme>
+    </StreamCall>
   )
 }
 export default Meeting;
