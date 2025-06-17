@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 const MeetingSetup = () => {
 
-  const [isMicCamToggleOn, setIsMicCamToggleOn] = useState(true);
+  const [isMicCamToggleOn, setIsMicCamToggleOn] = useState(false);
 
   const call = useCall();
 
@@ -25,6 +25,9 @@ const MeetingSetup = () => {
       <h1 className="text-2xl font-bold">
         Setup
       </h1>
+      <div className="w-[50%]">
+        <VideoPreview/>
+      </div>
       <div className="flex h-16 items-center justify-center gap-3">
         <label htmlFor="toggle" className="flex items-center justify-center gap-2 font-medium">
           <input
@@ -33,10 +36,10 @@ const MeetingSetup = () => {
             checked={isMicCamToggleOn}
             onChange={e => setIsMicCamToggleOn(e.target.checked)}
           />
-          Enable Camera and Microphone
+          Disable Camera and Microphone
         </label>
       </div>
-      <VideoPreview className="h-2"/>
+      
     </div>
   )
 }
