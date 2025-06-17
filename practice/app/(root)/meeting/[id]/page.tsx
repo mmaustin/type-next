@@ -18,7 +18,7 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
   
   const {call, isCallLoading} = useGetCallById(id);
   
-  if(!user || !isCallLoading) return <p>Something Rotten Is Going On!</p>
+  if(!user || isCallLoading) return <p>Something Rotten Is Going On!</p>
   
   return (
     <StreamCall call={call}>
