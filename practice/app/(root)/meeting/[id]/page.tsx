@@ -22,7 +22,7 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
   
   return (
     <StreamCall call={call}>
-      <StreamTheme>
+      <StreamTheme >
         {!isSetupComplete ? (
           <MeetingSetup />
         ) : (
