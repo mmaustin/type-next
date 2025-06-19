@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+///* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import MeetingRoom from "@/components/MeetingRoom";
@@ -24,7 +24,7 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
     <StreamCall call={call}>
       <StreamTheme >
         {!isSetupComplete ? (
-          <MeetingSetup isSetUpComplete={() => setIsSetupComplete}/>
+          <MeetingSetup isSetUpComplete={setIsSetupComplete}/>
         ) : (
           <MeetingRoom />
         )}
