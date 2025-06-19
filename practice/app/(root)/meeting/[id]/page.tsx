@@ -12,7 +12,7 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
   const {id} = paramId;
   
 
-  const [isSetupComplete, setIsSetupComplete] = useState<boolean>(false);
+  const [isSetupComplete, setIsSetupComplete] = useState(false);
 
   const user: User = {id: '1', name: 'mccray'};
   
@@ -24,7 +24,7 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
     <StreamCall call={call}>
       <StreamTheme >
         {!isSetupComplete ? (
-          <MeetingSetup />
+          <MeetingSetup isSetUpComplete={() => setIsSetupComplete}/>
         ) : (
           <MeetingRoom />
         )}

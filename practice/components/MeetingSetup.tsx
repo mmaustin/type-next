@@ -5,14 +5,14 @@ import { VideoPreview, useCall, DeviceSettings } from "@stream-io/video-react-sd
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
-const MeetingSetup = ({setIsSetUpComplete}: {setIsSetUpComplete(): }) => {
+const MeetingSetup = ({ isSetUpComplete }: { isSetUpComplete(): void}) => {
 
   const [isMicCamToggleOn, setIsMicCamToggleOn] = useState(false);
 
   const call = useCall();
 
   useEffect(() => {
-    if(isMicCamToggleOn){
+    if (isMicCamToggleOn) {
       call?.camera.disable();
       call?.microphone.disable();
     } else {
@@ -28,7 +28,7 @@ const MeetingSetup = ({setIsSetUpComplete}: {setIsSetUpComplete(): }) => {
         Setup
       </h1>
       <div className="w-[50%] text-center">
-        <VideoPreview/>
+        <VideoPreview />
       </div>
       <div className="flex h-16 items-center justify-center gap-3">
         <label htmlFor="toggle" className="flex items-center justify-center gap-2 font-medium">
@@ -42,8 +42,8 @@ const MeetingSetup = ({setIsSetUpComplete}: {setIsSetUpComplete(): }) => {
         </label>
         {/* <DeviceSettings /> */}
       </div>
-      <Button className="rounded-md bg-green-400 px-4 py-2.5"> 
-      Join Meeting
+      <Button className="rounded-md bg-green-400 px-4 py-2.5">
+        Join Meeting
       </Button>
     </div>
   )
