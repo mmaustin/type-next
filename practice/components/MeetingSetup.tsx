@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
-import { VideoPreview, useCall } from "@stream-io/video-react-sdk";
+import { VideoPreview, useCall, DeviceSettings } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
-const MeetingSetup = () => {
+const MeetingSetup = ({setIsSetUpComplete}: {setIsSetUpComplete(): }) => {
 
   const [isMicCamToggleOn, setIsMicCamToggleOn] = useState(false);
 
@@ -25,7 +27,7 @@ const MeetingSetup = () => {
       <h1 className="text-2xl font-bold">
         Setup
       </h1>
-      <div className="w-[50%]">
+      <div className="w-[50%] text-center">
         <VideoPreview/>
       </div>
       <div className="flex h-16 items-center justify-center gap-3">
@@ -38,8 +40,11 @@ const MeetingSetup = () => {
           />
           Disable Camera and Microphone
         </label>
+        {/* <DeviceSettings /> */}
       </div>
-      
+      <Button className="rounded-md bg-green-400 px-4 py-2.5"> 
+      Join Meeting
+      </Button>
     </div>
   )
 }
