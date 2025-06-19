@@ -1,8 +1,22 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+'use client';
 
+import { useState } from "react";
+
+type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
 const MeetingRoom = () => {
+
+  const [layout, setLayout] = useState<CallLayoutType>('speaker-left')
+
   return (
-    <div className="text-white">MeetingRoom</div>
+    <section className="relative h-screen w-full overflow-hidden pt-4 text-white">
+      <div className="relative flex size-full items-center justify-center">
+        <div className="flex size-full max-w-[1000px] items-center">
+          {layout}
+        </div>
+      </div>
+    </section>
   )
 }
 export default MeetingRoom;
