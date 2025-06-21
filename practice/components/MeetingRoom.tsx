@@ -10,7 +10,7 @@ type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 const MeetingRoom = () => {
 
   const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
-  const [showPartcipants, setShowParticipants] = useState<boolean>(false);
+  const [showPartcipants, setShowParticipants] = useState<boolean>(true);
 
   const CallLayout = () => {
     switch (layout) {
@@ -25,9 +25,9 @@ const MeetingRoom = () => {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden pt-4 text-white">
+    <section className="flex flex-col justify-center items-center h-screen w-full pt-4 text-white">
       <div className="relative flex size-full items-center justify-center">
-        <div className="flex size-full max-w-[1000px] items-center">
+        <div className="flex size-full max-w-[300px] items-center">
           <CallLayout />
         </div>
         <div className={cn('h-[calc(100vh-86px)] hidden ml-2', {'block': showPartcipants} )}>
@@ -36,7 +36,7 @@ const MeetingRoom = () => {
           }}/>
         </div>
       </div>
-      <div className="h-20 flex w-full items-center justify-center gap-5">
+      <div className="bg-yellow-600 h-[200px] w-[200px] gap-2 border border-red-500">
         <CallControls />
       </div>
     </section>
