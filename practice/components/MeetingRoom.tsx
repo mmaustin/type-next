@@ -25,9 +25,9 @@ const MeetingRoom = () => {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center h-screen w-full pt-4 text-white">
+    <section className="relative h-screen w-full pt-4 text-white">
       <div className="relative flex size-full items-center justify-center">
-        <div className="flex size-full max-w-[300px] items-center">
+        <div className="flex size-full max-w-[1000px] items-center">
           <CallLayout />
         </div>
         <div className={cn('h-[calc(100vh-86px)] hidden ml-2', {'block': showPartcipants} )}>
@@ -36,7 +36,7 @@ const MeetingRoom = () => {
           }}/>
         </div>
       </div>
-      <div className="bg-yellow-600 h-[200px] w-[200px] gap-2 border border-red-500">
+      <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
         <CallControls />
       </div>
     </section>
