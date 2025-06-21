@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 
 const MeetingSetup = ({ isSetUpComplete }: { isSetUpComplete(value: boolean): void}) => {
 
-  const [isMicCamToggleOn, setIsMicCamToggleOn] = useState(false);
+  const [isMicCamToggleOn, setIsMicCamToggleOn] = useState(true);
 
   const call = useCall();
 
@@ -40,7 +40,7 @@ const MeetingSetup = ({ isSetUpComplete }: { isSetUpComplete(value: boolean): vo
           />
           Disable Camera and Microphone
         </label>
-        {/* <DeviceSettings /> */}
+        <DeviceSettings />
       </div>
       <Button className="rounded-md bg-green-400 px-4 py-2.5" onClick={() => {
         call?.join();

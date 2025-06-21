@@ -2,7 +2,7 @@
 'use client';
 
 import { cn } from "@/lib/utils";
-import { CallParticipantsList, PaginatedGridLayout, SpeakerLayout } from "@stream-io/video-react-sdk";
+import { CallControls, CallParticipantsList, PaginatedGridLayout, SpeakerLayout } from "@stream-io/video-react-sdk";
 import { useState } from "react";
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
@@ -19,7 +19,8 @@ const MeetingRoom = () => {
       case 'speaker-right':
         return <SpeakerLayout participantsBarPosition={"left"} />
       default:
-        return <SpeakerLayout participantsBarPosition={"right"} />
+        return <div className="h-[200px]"><SpeakerLayout participantsBarPosition={"right"} />
+          </div> 
     }
   };
 
@@ -34,6 +35,9 @@ const MeetingRoom = () => {
             setShowParticipants(false);
           }}/>
         </div>
+      </div>
+      <div className="h-20 flex w-full items-center justify-center gap-5">
+        <CallControls />
       </div>
     </section>
   )
