@@ -4,6 +4,7 @@
 import { cn } from "@/lib/utils";
 import { CallControls, CallParticipantsList, PaginatedGridLayout, SpeakerLayout } from "@stream-io/video-react-sdk";
 import { useState } from "react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
@@ -20,7 +21,7 @@ const MeetingRoom = () => {
         return <SpeakerLayout participantsBarPosition={"left"} />
       default:
         return <div className="h-[200px]"><SpeakerLayout participantsBarPosition={"right"} />
-          </div> 
+        </div>
     }
   };
 
@@ -30,14 +31,26 @@ const MeetingRoom = () => {
         <div className="flex size-full max-w-[1000px] items-center">
           <CallLayout />
         </div>
-        <div className={cn('h-[calc(100vh-86px)] hidden ml-2', {'block': showPartcipants} )}>
+        <div className={cn('h-[calc(100vh-86px)] hidden ml-2', { 'block': showPartcipants })}>
           <CallParticipantsList onClose={() => {
             setShowParticipants(false);
-          }}/>
+          }} />
         </div>
       </div>
       <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
         <CallControls />
+
+        <DropdownMenu>
+          <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem>Team</DropdownMenuItem>
+            <DropdownMenuItem>Subscription</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </section>
   )
