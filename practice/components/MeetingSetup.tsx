@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import { VideoPreview, useCall, DeviceSettings } from "@stream-io/video-react-sdk";
