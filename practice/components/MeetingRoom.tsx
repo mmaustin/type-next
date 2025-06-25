@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import { cn } from "@/lib/utils";
-import { CallControls, CallParticipantsList, CallStatsButton, PaginatedGridLayout, SpeakerLayout } from "@stream-io/video-react-sdk";
+import { CallControls, CallParticipantsList, CallStatsButton, PaginatedGridLayout, SpeakerLayout, useCallStateHooks, CallingState } from "@stream-io/video-react-sdk";
 import { useState } from "react";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { LayoutList, Users } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
@@ -12,12 +11,17 @@ import EndCallButton from "./EndCallButton";
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
 const MeetingRoom = () => {
+  const { useCallCallingState} = useCallStateHooks();
+  const callingState = useCallCallingState();
 
+  
   const searchParams = useSearchParams();
   const isPersonalRoom = !!searchParams.get('personal');
-
+  
   const [layout, setLayout] = useState<CallLayoutType>('speaker-left');
   const [showPartcipants, setShowParticipants] = useState<boolean>(true);
+  
+  if(callingState !== CallingState.JOINED) return <p>Loading . . . </p>
 
   const CallLayout = () => {
     switch (layout) {
@@ -43,7 +47,7 @@ const MeetingRoom = () => {
           }} />
         </div>
       </div>
-      <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
+      <div className="fixed bottom-0 flex w-full items-center justify-center gap-5 flex-wrap">
         <CallControls />
 
         <DropdownMenu>
