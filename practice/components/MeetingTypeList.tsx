@@ -88,7 +88,7 @@ const MeetingTypeList = () => {
           <label htmlFor="description" className="text-base text-normal leading-[22px] text-sky-2">
             Add A Description
           </label>
-          <Textarea />
+          <Textarea id="description" className="border-none bg-slate-900 focus-visible:ring-0 focus-visible:ring-offset-0"/>
         </div>
         </MeetingModal>
       ) : (
