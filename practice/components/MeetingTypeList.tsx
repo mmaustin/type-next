@@ -13,7 +13,7 @@ import { toast } from "sonner"
 const MeetingTypeList = () => {
 
   const router = useRouter();
-  
+
   const [meetingState, setMeetingState] = useState<'isJoiningMeeting' | 'isScheduleMeeting' | 'isInstantMeeting' | undefined>();
 
   const [values, setValues] = useState({
@@ -25,20 +25,20 @@ const MeetingTypeList = () => {
   const [callDetails, setCallDetails] = useState<Call>();
 
   const client = useStreamVideoClient();
-  
+
   const createMeeting = async () => {
-    if(!client) return;
+    if (!client) return;
 
     try {
-      if(!values.dateTime){
+      if (!values.dateTime) {
         toast.info('Please select a date and time');
         return;
       }
 
       const id = crypto.randomUUID();
       const call = client.call('default', id);
-      
-      if(!call) throw new Error('Failed to create call');
+
+      if (!call) throw new Error('Failed to create call');
 
       const startedAt = values.dateTime.toISOString() || new Date(Date.now()).toISOString();
       const description = values.description || 'Instant Meeting';
@@ -46,7 +46,7 @@ const MeetingTypeList = () => {
       await call.getOrCreate({
         data: {
           starts_at: startedAt,
-          custom : {
+          custom: {
             description
           }
         }
@@ -54,7 +54,7 @@ const MeetingTypeList = () => {
 
       setCallDetails(call);
 
-      if(!values.description){
+      if (!values.description) {
         router.push(`/meeting/${call.id}`);
       };
 
@@ -63,15 +63,35 @@ const MeetingTypeList = () => {
     } catch (error) {
       console.log(error);
       toast.error('Meeting was not created.')
-    }   
+    }
   };
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-      <FunctionCard cardText={'New Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isInstantMeeting')} classname="bg-orange-600"/>
-      <FunctionCard cardText={'Schedule Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isScheduleMeeting')} classname="bg-blue-600"/>
-      <FunctionCard cardText={'View Recordings'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isJoiningMeeting')} classname="bg-purple-600"/>
-      <FunctionCard cardText={'Join Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isJoiningMeeting')} classname="bg-yellow-600"/>
+      <FunctionCard cardText={'New Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isInstantMeeting')} classname="bg-orange-600" />
+      <FunctionCard cardText={'Schedule Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isScheduleMeeting')} classname="bg-blue-600" />
+      <FunctionCard cardText={'View Recordings'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isJoiningMeeting')} classname="bg-purple-600" />
+      <FunctionCard cardText={'Join Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isJoiningMeeting')} classname="bg-yellow-600" />
+
+      {!callDetails ? (
+        <MeetingModal
+          isOpen={meetingState === 'isScheduleMeeting'}
+          onClose={() => setMeetingState(undefined)}
+          title="Create Meeting"
+          handleClick={createMeeting}
+        />
+      ) : (
+        <MeetingModal
+          isOpen={meetingState === 'isScheduleMeeting'}
+          onClose={() => setMeetingState(undefined)}
+          title='Meeting Created'
+          classname='text-center'
+          buttonText='Start Meeting'
+          handleClick={() => {
+            // navigator.clipboard.writeText(meetingLink);
+          }}
+        />
+      )}
 
       <MeetingModal
         isOpen={meetingState === 'isInstantMeeting'}

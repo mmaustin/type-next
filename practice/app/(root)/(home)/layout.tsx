@@ -1,7 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import type { Metadata } from "next";
 import { ReactNode } from "react";
 
+export const metadata: Metadata = {
+  title: "Zoom Clone",
+  description: "A rough zoom clone",
+};
 
 const HomeLayout = ({children}: {children: ReactNode}) => {
   return (
