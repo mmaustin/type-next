@@ -10,6 +10,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { SiImagedotsc } from "react-icons/si";
+import { Textarea } from "./ui/textarea";
 // import globe from '../public/globe.svg';
 // import verce from '../public/vercel.svg';
 
@@ -83,7 +84,12 @@ const MeetingTypeList = () => {
           title="Create Meeting"
           handleClick={createMeeting}
         >
-        test
+        <div className="flex flex-col gap-2 5">
+          <label htmlFor="description" className="text-base text-normal leading-[22px] text-sky-2">
+            Add A Description
+          </label>
+          <Textarea />
+        </div>
         </MeetingModal>
       ) : (
         <MeetingModal
