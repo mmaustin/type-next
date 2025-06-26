@@ -22,7 +22,7 @@ interface MeetingModalProps {
   buttonText?: string,
   handleClick?: () => void,
   children?: ReactNode,
-  image?: string,
+  image?: React.ReactNode,
   buttonIcon?: React.ReactNode
 }
 
@@ -33,6 +33,7 @@ const MeetingModal = ({ isOpen, onClose, title, classname, buttonText, handleCli
         <h1 className={cn('text-2xl font-bold leading-[42px]', classname)}>{title}</h1>
         {children}
         <Button className="bg-blue-600 focus-visible:ring-0 focus-visible:ring-offset-0" onClick={handleClick}>
+          {image} &nbsp;
           {buttonIcon} &nbsp;
           {buttonText || 'Schedule Meeting'}
         </Button>

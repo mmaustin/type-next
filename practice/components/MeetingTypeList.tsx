@@ -8,7 +8,10 @@ import { useState } from "react";
 import MeetingModal from "./MeetingModal";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner"
+import { toast } from "sonner";
+import { SiImagedotsc } from "react-icons/si";
+// import globe from '../public/globe.svg';
+// import verce from '../public/vercel.svg';
 
 const MeetingTypeList = () => {
 
@@ -79,17 +82,22 @@ const MeetingTypeList = () => {
           onClose={() => setMeetingState(undefined)}
           title="Create Meeting"
           handleClick={createMeeting}
-        />
+        >
+        test
+        </MeetingModal>
       ) : (
         <MeetingModal
           isOpen={meetingState === 'isScheduleMeeting'}
           onClose={() => setMeetingState(undefined)}
           title='Meeting Created'
           classname='text-center'
-          buttonText='Start Meeting'
           handleClick={() => {
             // navigator.clipboard.writeText(meetingLink);
+            // toast({title: 'Link Copied'})
           }}
+          image={<SiImagedotsc />}
+          buttonIcon={<SiImagedotsc/>}
+          buttonText='Schedule Meeting'  
         />
       )}
 
