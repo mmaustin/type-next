@@ -11,6 +11,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { SiImagedotsc } from "react-icons/si";
 import { Textarea } from "./ui/textarea";
+import ReactDatePicker from 'react-datepicker'
+
 // import globe from '../public/globe.svg';
 // import verce from '../public/vercel.svg';
 
@@ -91,6 +93,14 @@ const MeetingTypeList = () => {
           <Textarea id="description" className="border-none bg-slate-900 focus-visible:ring-0 focus-visible:ring-offset-0" onChange={e => {
             setValues({...values, description: e.target.value})
           }}/>
+        </div>
+        <div className="flex w-full flex-col gap-2 5">
+          <label className="text-base text-normal leading[22px] text-sky-2 uppercase">
+            select date and time
+          </label>
+          <ReactDatePicker
+
+          />
         </div>
         </MeetingModal>
       ) : (
