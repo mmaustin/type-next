@@ -99,7 +99,10 @@ const MeetingTypeList = () => {
             select date and time
           </label>
           <ReactDatePicker
-
+            selected={values.dateTime}
+            onChange={(date) => {
+              setValues({...values, dateTime: date!})
+            }}
           />
         </div>
         </MeetingModal>
