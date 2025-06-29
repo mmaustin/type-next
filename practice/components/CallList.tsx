@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
+import { useGetCall } from "@/hooks/useGetCalls";
+
 type CallListProps = {
   type: "upcoming" | "recordings" | "ended"
 }
