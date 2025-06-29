@@ -9,7 +9,7 @@ const Upcoming = () => {
         Upcoming
       </h1>
   
-      <CallList />
+      <CallList type="upcoming" />
     </section>
   )
 }
