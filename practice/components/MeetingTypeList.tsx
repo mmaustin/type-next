@@ -11,7 +11,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { SiImagedotsc } from "react-icons/si";
 import { Textarea } from "./ui/textarea";
-import ReactDatePicker from 'react-datepicker'
+import ReactDatePicker from 'react-datepicker';
+
 
 // import globe from '../public/globe.svg';
 // import verce from '../public/vercel.svg';
@@ -19,6 +20,7 @@ import ReactDatePicker from 'react-datepicker'
 const MeetingTypeList = () => {
 
   const router = useRouter();
+  
 
   const [meetingState, setMeetingState] = useState<'isJoiningMeeting' | 'isScheduleMeeting' | 'isInstantMeeting' | undefined>();
 
@@ -72,6 +74,8 @@ const MeetingTypeList = () => {
     }
   };
 
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
+
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
       <FunctionCard cardText={'New Meeting'} icon={<BsPlusLg />} handleClick={() => setMeetingState('isInstantMeeting')} classname="bg-orange-600" />
@@ -119,12 +123,12 @@ const MeetingTypeList = () => {
           title='Meeting Created'
           classname='text-center'
           handleClick={() => {
-            // navigator.clipboard.writeText(meetingLink);
-            // toast({title: 'Link Copied'})
+            navigator.clipboard.writeText(meetingLink);
+            toast.message('Link Copied')
           }}
           image={<SiImagedotsc />}
           buttonIcon={<SiImagedotsc/>}
-          buttonText='Schedule Meeting'  
+          buttonText='Copy Meeting Link'  
         />
       )}
 
