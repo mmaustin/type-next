@@ -51,7 +51,7 @@ export const useGetCall = () => {
   return {
     endedCalls,
     upcomingCalls,
-    recordings: calls,
+    callRecordings: calls,
     isLoading,
   }
 
