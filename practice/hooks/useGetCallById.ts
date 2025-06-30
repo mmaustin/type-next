@@ -15,7 +15,7 @@ export const useGetCallById = (id: string | string[]) => {
   useEffect(() => {
     if(!client) return;
     
-    // if(id !== '1'){
+    // if(id !== 'This is not the param id!'){
 
     const loadCall = async() => {
       const {calls} = await client.queryCalls({

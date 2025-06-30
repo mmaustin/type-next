@@ -12,7 +12,7 @@ const Meeting = ({params}: {params: Promise<{id: string}>}) => {
     const {id} = paramId;
 
  
-  // const [callId, setCallId] = useState<{id: string}>({id: '1'});
+  // const [callId, setCallId] = useState<{id: string}>({id: 'This is not the param id!'});
   // const {id} = callId;
   //console.log(id);
   

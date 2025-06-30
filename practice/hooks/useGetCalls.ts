@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+///* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { Call, useStreamVideoClient, User } from "@stream-io/video-react-sdk";
@@ -37,5 +37,22 @@ export const useGetCall = () => {
       }
     };
     loadCalls();
-  }, [client, user?.id])
+  }, [client, user?.id]);
+
+  const now = new Date();
+
+  const endedCalls = calls.filter(({state: {startsAt, endedAt}}: Call) => {
+    return (startsAt && new Date(startsAt) < now || !!endedAt)
+  })
+  const upcomingCalls = calls.filter(({state: {startsAt}}: Call) => {
+    return startsAt && new Date(startsAt) > now
+  })
+
+  return {
+    endedCalls,
+    upcomingCalls,
+    recordings: calls,
+    isLoading,
+  }
+
 };
