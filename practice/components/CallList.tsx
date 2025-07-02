@@ -5,6 +5,7 @@ import { useGetCall } from "@/hooks/useGetCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import MeetingCard from "./MeetingCard";
 
 type CallListProps = {
   type: "upcoming" | "recordings" | "ended"
@@ -48,9 +49,13 @@ const CallList = ({type } : CallListProps) => {
   
   return (
     <div className="grid gird-cols-1 gap-5 xl:grid-cols-2">
-      {calls && calls.length > 0 ? calls.map((meeting: Call | CallRecording) => (
-        <p>a</p> : ()
-      ))}
+      {calls && calls.length > 0 ? calls.map((meeting: Call | CallRecording, i) => (
+        <MeetingCard key={i} />
+      )) : (
+        <h1>
+          {noCallsMessage}
+        </h1>
+      )}
     </div>
   )
 }
