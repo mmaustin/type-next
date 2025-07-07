@@ -13,18 +13,21 @@ const markerIcon = icon({
 
 const PropertyMap = () => {
 
-  const position = [40.843, -73.91] as [number, number]
+  const position = [[40.843, -73.91] as [number, number], [40.843, -73.51] as [number, number]]
 
   return (
     <div className="mt-4">
-      <MapContainer center={position} zoom={7} scrollWheelZoom={false} zoomControl={false} className='h-[50vh] w-[50%] z-0 rounded-lg relative'>
+      <MapContainer center={[40.843, -73.91]} zoom={7} scrollWheelZoom={false} zoomControl={false} className='h-[50vh] w-[50%] z-0 rounded-lg relative'>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <ZoomControl position='bottomright' />
-        <Marker position={position} icon={markerIcon}></Marker>
+        {position.map((posit, i) => (
+          <Marker key={i} position={posit} icon={markerIcon}></Marker>
+        ))}
       </MapContainer>
+
     </div>
 
   )
