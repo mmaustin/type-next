@@ -1,48 +1,14 @@
 'use client'
 
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-//import {FaAccusoft} from "react-icons/fa"
-import {icon} from 'leaflet';
-const iconUrl =
-  'https://unpkg.com/leaflet@1.9.3/dist/images/marker-icon-2x.png';
-const markerIcon = icon({
-  iconUrl: iconUrl,
-  iconSize: [20, 30],
-});
+import PropertyMap from "@/components/PropertyMap";
 
 
-const page = () => {
-
-  const position = [40.843, -73.91] as [number, number]
-
+const Property = () => {
   return (
-    <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position} icon={markerIcon}>
-        ppp
-      </Marker>
-    </MapContainer>
-    // <div className="">
-    //   <FaAccusoft className="text-white"/>
-    // </div>
+    <div>
+      <PropertyMap />
+    </div>
   )
 }
-export default page
-
-// type Container = {
-//   itemOne: string,
-//   itemTwo: number,
-//   itemThree: boolean
-// };
-
-// const firstContainer: Container = {
-//   itemOne: 'some text',
-//   itemTwo: 99,
-//   itemThree: true
-// };
-
-// console.log(firstContainer.itemTwo);
+export default Property;
 
