@@ -55,7 +55,7 @@ const PropertyMap = () => {
 
   return (
     <div className="mt-4">
-      <MapContainer center={[40.695051, -73.917793]} zoom={7} scrollWheelZoom={false} zoomControl={false} className='h-[500px] w-[50%] z-0 rounded-lg relative'>
+      <MapContainer center={[40.695051, -73.917793]} zoom={7} scrollWheelZoom={false} zoomControl={false} className='h-[400px] w-[50%] z-0 rounded-lg relative'>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

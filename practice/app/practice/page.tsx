@@ -10,7 +10,7 @@ const MapProperty = dynamic(
 
 const Property = () => {
   return (
-    <div>
+    <div className="h-[600px] border border-blue-500 justify-center">
       <MapProperty />
     </div>
   )
