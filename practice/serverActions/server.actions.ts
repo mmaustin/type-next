@@ -33,15 +33,16 @@ export const tokenProvider = async () => {
 
 };
 
-export const shootingData = async(): Promise<void> => {
+export const shootingData = async(): Promise<string> => {
   try {
     const allData = await fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json");
     const data: object[] = await allData.json();
-    console.log(Object.keys(data));
-    //console.log(JSON.stringify(allData));
+
+    return JSON.stringify(data);
     
   } catch (error) {
     console.log(error);
+    return 'ppp'
   }
 
 }
