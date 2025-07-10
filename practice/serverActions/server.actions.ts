@@ -32,3 +32,14 @@ export const tokenProvider = async () => {
   return token;
 
 };
+
+export const shootingData = async(): Promise<void> => {
+  try {
+    const allData = await fetch("https://data.cityofnewyork.us/resource/5ucz-vwe8.json");
+    console.log(JSON.stringify(allData));
+    
+  } catch (error) {
+    console.log(error);
+  }
+
+}
