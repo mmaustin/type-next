@@ -1,15 +1,15 @@
+import PromisePropComponent from "@/components/PromisePropComponent";
 import { shootingData } from "@/serverActions/server.actions";
 
+const PromiseProp = () => {
 
-const PromiseProp = async() => {
-
-  const data = await shootingData();
-  const parsedData = JSON.parse(data);
-  console.log(parsedData.slice(0, 9));
+  const data = shootingData();
   
 
   return (
-    <div className="bg-slate-400 h-[300px]">PromiseProp</div>
+    <div className="bg-slate-400 h-[300px]">
+      <PromisePropComponent proppy={data} />
+    </div>
   )
 }
 export default PromiseProp;
